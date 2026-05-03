@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc642fdd1847c4f5f7f5" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="RawWorld.App.MainActivity, RawWorld.App">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc642fdd1847c4f5f7f5" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="RawWorld.App.MainApplication, RawWorld.App" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="RawWorld.App" module-name="RawWorld.App.dll">
+    <type assembly-qualified-name="RawWorld.App.MainActivity, RawWorld.App, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="rawworld.app.MainActivity" java-key="crc642fdd1847c4f5f7f5.MainActivity" managed-key="RawWorld.App.MainActivity" partial-assembly-qualified-name="RawWorld.App.MainActivity, RawWorld.App" />
+    <type assembly-qualified-name="RawWorld.App.MainApplication, RawWorld.App, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="rawworld.app.MainApplication" java-key="crc642fdd1847c4f5f7f5.MainApplication" managed-key="RawWorld.App.MainApplication" partial-assembly-qualified-name="RawWorld.App.MainApplication, RawWorld.App" />
+  </acw-types>
+</api>

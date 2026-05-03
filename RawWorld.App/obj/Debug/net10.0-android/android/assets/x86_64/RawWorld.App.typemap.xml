@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="RawWorld.App" mvid="de58a970844f4ac0860278e065beefef">
+  <java-to-managed>
+    <entry java-name="crc642fdd1847c4f5f7f5/MainActivity" managed-name="RawWorld.App.MainActivity, RawWorld.App" managed-type-token-id="33554444" />
+    <entry java-name="crc642fdd1847c4f5f7f5/MainApplication" managed-name="RawWorld.App.MainApplication, RawWorld.App" managed-type-token-id="33554445" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc642fdd1847c4f5f7f5/MainActivity" managed-name="RawWorld.App.MainActivity, RawWorld.App" managed-type-token-id="33554444" />
+    <entry java-name="crc642fdd1847c4f5f7f5/MainApplication" managed-name="RawWorld.App.MainApplication, RawWorld.App" managed-type-token-id="33554445" />
+  </managed-to-java>
+</api>

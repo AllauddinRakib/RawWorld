@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RawWorld.App.Pages.RegisterPage"
+             Title="Register">
+    <VerticalStackLayout Padding="30" Spacing="16">
+        <Label Text="Create Account"
+               FontSize="26"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        <Label Text="Join Raw World today"
+               FontSize="14"
+               TextColor="Gray"
+               HorizontalOptions="Center"/>
+        <Entry Placeholder="Full Name"
+               Text="{Binding FullName}"/>
+        <Entry Placeholder="Email"
+               Text="{Binding Email}"
+               Keyboard="Email"/>
+        <Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="True"/>
+        <Button Text="Create Account"
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="8"/>
+        <Button Text="Already have an account? Login"
+                Command="{Binding BackToLoginCommand}"
+                BackgroundColor="Transparent"
+                TextColor="#4CAF50"/>
+        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="#4CAF50"/>
+    </VerticalStackLayout>
+</ContentPage>

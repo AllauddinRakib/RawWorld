@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RawWorld.App.Pages.ProductListPage"
+             Title="Products"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Search Bar -->
+        <Frame Grid.Row="0" Margin="12,12,12,6" Padding="0"
+               CornerRadius="12" HasShadow="True"
+               BackgroundColor="White">
+            <SearchBar Placeholder="Search juices..."
+                       Text="{Binding SearchText}"
+                       SearchCommand="{Binding SearchCommand}"
+                       BackgroundColor="Transparent"/>
+        </Frame>
+
+        <!-- Product List -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Products}"
+                        Margin="12,6,12,12">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="8" VerticalItemSpacing="8"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" CornerRadius="16"
+                           HasShadow="True" BackgroundColor="White">
+                        <Grid RowDefinitions="140,Auto,Auto,Auto">
+
+                            <!-- Image Area -->
+                            <BoxView Grid.Row="0"
+                                     BackgroundColor="#E8F5E9"
+                                     CornerRadius="16"/>
+                            <Label Grid.Row="0"
+                                   Text="🥤"
+                                   FontSize="48"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+
+                            <!-- Product Name -->
+                            <Label Grid.Row="1"
+                                   Text="{Binding Name}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"
+                                   Margin="10,8,10,2"
+                                   LineBreakMode="TailTruncation"/>
+
+                            <!-- Category -->
+                            <Label Grid.Row="2"
+                                   Text="{Binding Category}"
+                                   FontSize="11"
+                                   TextColor="Gray"
+                                   Margin="10,0,10,4"/>
+
+                            <!-- Price + Add Button -->
+                            <Grid Grid.Row="3"
+                                  ColumnDefinitions="*,Auto"
+                                  Margin="10,0,10,10">
+                                <Label Text="{Binding Price, StringFormat='£{0:F2}'}"
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="#4CAF50"
+                                       VerticalOptions="Center"/>
+                                <Button Grid.Column="1"
+                                        Text="+"
+                                        FontSize="20"
+                                        FontAttributes="Bold"
+                                        WidthRequest="36"
+                                        HeightRequest="36"
+                                        CornerRadius="18"
+                                        BackgroundColor="#4CAF50"
+                                        TextColor="White"
+                                        Padding="0"
+                                        Clicked="OnAddToCartClicked"
+                                        CommandParameter="{Binding Id}"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <!-- Empty State -->
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="12" Margin="0,60,0,0">
+                    <Label Text="🍃" FontSize="60" HorizontalOptions="Center"/>
+                    <Label Text="No products found"
+                           FontSize="18" FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Try a different search"
+                           FontSize="14" TextColor="Gray"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!-- Loading -->
+        <ActivityIndicator Grid.Row="1"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="#4CAF50"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentPage>

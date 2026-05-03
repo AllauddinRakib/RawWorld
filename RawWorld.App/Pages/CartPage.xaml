@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RawWorld.App.Pages.CartPage"
+             Title="My Cart"
+             BackgroundColor="#F5F5F5">
+	<Grid RowDefinitions="*,Auto,Auto">
+
+		<CollectionView Grid.Row="0" ItemsSource="{Binding Items}"
+                        Margin="12,12,12,0">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Frame Margin="0,0,0,10" Padding="12"
+                           CornerRadius="12" HasShadow="True"
+                           BackgroundColor="White">
+						<Grid ColumnDefinitions="50,*,Auto">
+
+							<!-- Icon -->
+							<Frame WidthRequest="45" HeightRequest="45"
+                                   CornerRadius="22" Padding="0"
+                                   BackgroundColor="#E8F5E9"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+								<Label Text="🥤" FontSize="22"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+							</Frame>
+
+							<!-- Info -->
+							<VerticalStackLayout Grid.Column="1" Padding="10,0" Spacing="3">
+								<Label Text="{Binding Product.Name}"
+                                       FontAttributes="Bold" FontSize="15"/>
+								<Label Text="{Binding Product.Price, StringFormat='£{0:F2} each'}"
+                                       TextColor="Gray" FontSize="12"/>
+								<Label Text="{Binding Quantity, StringFormat='Qty: {0}'}"
+                                       TextColor="#4CAF50" FontSize="13" FontAttributes="Bold"/>
+							</VerticalStackLayout>
+
+							<!-- Remove -->
+							<Button Grid.Column="2"
+                                    Text="🗑"
+                                    FontSize="18"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#F44336"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},
+                                              Path=BindingContext.RemoveCommand}"
+                                    CommandParameter="{Binding ProductId}"/>
+						</Grid>
+					</Frame>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+
+			<CollectionView.EmptyView>
+				<VerticalStackLayout HorizontalOptions="Center"
+                                     VerticalOptions="Center"
+                                     Spacing="12" Margin="0,80,0,0">
+					<Label Text="🛒" FontSize="60" HorizontalOptions="Center"/>
+					<Label Text="Your cart is empty"
+                           FontSize="18" FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+					<Label Text="Add some juices to get started"
+                           FontSize="14" TextColor="Gray"
+                           HorizontalOptions="Center"/>
+				</VerticalStackLayout>
+			</CollectionView.EmptyView>
+		</CollectionView>
+
+		<!-- Total -->
+		<Frame Grid.Row="1" Margin="12,8,12,4" Padding="16,12"
+               CornerRadius="12" HasShadow="True" BackgroundColor="White">
+			<Grid ColumnDefinitions="*,Auto">
+				<Label Text="Total" FontSize="16" FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+				<Label Grid.Column="1"
+                       Text="{Binding Total, StringFormat='£{0:F2}'}"
+                       FontSize="20" FontAttributes="Bold"
+                       TextColor="#4CAF50" VerticalOptions="Center"/>
+			</Grid>
+		</Frame>
+
+		<!-- Checkout Button -->
+		<Button Grid.Row="2"
+                Text="Proceed to Checkout"
+                Command="{Binding CheckoutCommand}"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="12"
+                FontSize="16"
+                FontAttributes="Bold"
+                HeightRequest="54"
+                Margin="12,4,12,16"/>
+	</Grid>
+</ContentPage>

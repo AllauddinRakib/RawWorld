@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RawWorld.App.Pages.LoginPage"
+             Title="Login"
+             Shell.NavBarIsVisible="False">
+	<VerticalStackLayout Padding="30" Spacing="0">
+
+		<!-- Logo Area -->
+		<VerticalStackLayout Spacing="8" Margin="0,40,0,40">
+			<BoxView WidthRequest="80" HeightRequest="80"
+                     BackgroundColor="#4CAF50"
+                     CornerRadius="40"
+                     HorizontalOptions="Center"/>
+			<Label Text="Raw World"
+                   FontSize="28" FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+			<Label Text="Authentic Juice Company"
+                   FontSize="14" TextColor="Gray"
+                   HorizontalOptions="Center"/>
+		</VerticalStackLayout>
+
+		<!-- Email & Password -->
+		<Entry Placeholder="Email"
+               Text="{Binding Email}"
+               Keyboard="Email"
+               Margin="0,0,0,12"/>
+		<Entry Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="True"
+               Margin="0,0,0,20"/>
+
+		<!-- Customer Login Button -->
+		<Button Text="Login as Customer"
+                Command="{Binding CustomerLoginCommand}"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="8"
+                Margin="0,0,0,10"/>
+
+		<!-- Admin Login Button -->
+		<Button Text="Login as Admin"
+                Command="{Binding AdminLoginCommand}"
+                BackgroundColor="#1565C0"
+                TextColor="White"
+                CornerRadius="8"
+                Margin="0,0,0,20"/>
+
+		<!-- Register Link -->
+		<Button Text="New customer? Register here"
+                Command="{Binding RegisterCommand}"
+                BackgroundColor="Transparent"
+                TextColor="#4CAF50"/>
+
+		<ActivityIndicator IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="#4CAF50"
+                           Margin="0,10,0,0"/>
+
+	</VerticalStackLayout>
+</ContentPage>

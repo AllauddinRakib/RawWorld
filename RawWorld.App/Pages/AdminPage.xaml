@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RawWorld.App.Pages.AdminPage"
+             Title="Admin — Orders"
+             BackgroundColor="#F5F5F5">
+    <CollectionView ItemsSource="{Binding Orders}" Margin="12">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="0,0,0,10" Padding="16"
+                       CornerRadius="12" HasShadow="True"
+                       BackgroundColor="White">
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="{Binding Id, StringFormat='Order #{0}'}"
+                               FontAttributes="Bold" FontSize="16"/>
+
+                        <Frame Grid.Row="0" Grid.Column="1"
+                               Padding="8,4" CornerRadius="8"
+                               BackgroundColor="#FFF3E0">
+                            <Label Text="{Binding Status}"
+                                   TextColor="#FF9800"
+                                   FontSize="12" FontAttributes="Bold"/>
+                        </Frame>
+
+                        <Label Grid.Row="1" Grid.ColumnSpan="2"
+                               Text="{Binding Total, StringFormat='Total: £{0:F2}'}"
+                               FontSize="14" TextColor="Gray"
+                               Margin="0,4,0,0"/>
+
+                        <Button Grid.Row="2" Grid.ColumnSpan="2"
+                                Text="Update Status"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},
+                                          Path=BindingContext.UpdateStatusCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#1565C0"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="38"
+                                FontSize="13"
+                                Margin="0,8,0,0"/>
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

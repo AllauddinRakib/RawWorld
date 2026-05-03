@@ -1,0 +1,56 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio
+.vs/
+*.rsuser
+launchSettings.json
+
+## NuGet
+*.nupkg
+**/packages/*
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+## User-specific files
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+
+## MAUI specific
+*.apk
+*.aab
+*.ipa
+
+## Secrets - IMPORTANT
+appsettings.Development.json
+secrets.json
+
+## OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Misc
+*.tmp
+*.temp
+*.log
+~$*
